@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Accord de l’adjectief - Explication claire + test interactif</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f9ff;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1, h2 {
+      color: #0d47a1;
+    }
+    .box {
+      background-color: #e3f2fd;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 25px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #bbdefb;
+    }
+    .result {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 5px;
+      display: inline-block;
+    }
+    .with-e {
+      background-color: #d0f0c0;
+      color: green;
+    }
+    .without-e {
+      background-color: #f8d7da;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🇳🇱 Quand ajouter -e à l’adjectief ?</h1>
+
+  <div class="box">
+    <h2>📘 Règle claire et simple</h2>
+    <p>❌ On ne met pas -e à l’adjectief <strong>uniquement si</strong> :</p>
+    <ul>
+      <li>le nom est un <strong>het-woord</strong></li>
+      <li>le nom est au <strong>singulier</strong></li>
+      <li>il y a <strong>“een”</strong> devant</li>
+    </ul>
+    <p>✅ Dans <strong>tous les autres cas</strong>, on ajoute -e.</p>
+  </div>
+
+  <h2>📊 Mini-tableau de logique</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>het-woord ?</th>
+        <th>singulier ?</th>
+        <th>“een” ?</th>
+        <th>Ajoute -e ?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>✔️</td>
+        <td>✔️</td>
+        <td>✔️</td>
+        <td class="without-e">❌ Non</td>
+      </tr>
+      <tr>
+        <td>✔️</td>
+        <td>✔️</td>
+        <td>✖️</td>
+        <td class="with-e">✅ Oui</td>
+      </tr>
+      <tr>
+        <td>✔️</td>
+        <td>✖️</td>
+        <td>✔️</td>
+        <td class="with-e">✅ Oui</td>
+      </tr>
+      <tr>
+        <td>✖️</td>
+        <td>✔️</td>
+        <td>✔️</td>
+        <td class="with-e">✅ Oui</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>🧪 Test interactif</h2>
+  <p>Coche les cases qui sont vraies pour ta phrase :</p>
+
+  <label><input type="checkbox" id="het"> Le mot est un het-woord</label><br>
+  <label><input type="checkbox" id="singulier"> Le mot est au singulier</label><br>
+  <label><input type="checkbox" id="een"> Il y a “een” devant</label><br><br>
+
+  <button onclick="verifier()">Vérifier</button>
+
+  <p id="resultat" class="result"></p>
+
+  <script>
+    function verifier() {
+      const het = document.getElementById("het").checked;
+      const singulier = document.getElementById("singulier").checked;
+      const een = document.getElementById("een").checked;
+
+      const resultat = document.getElementById("resultat");
+
+      if (het && singulier && een) {
+        resultat.textContent = "❌ On n'ajoute PAS -e";
+        resultat.className = "result without-e";
+      } else {
+        resultat.textContent = "✅ On ajoute -e";
+        resultat.className = "result with-e";
+      }
+    }
+  </script>
+
+</body>
+</html>

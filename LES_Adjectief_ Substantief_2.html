@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Accord adjectief - Tableau mixte</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #0d47a1;
+        }
+
+        h2 {
+            color: #1565c0;
+        }
+
+        .box {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #bbdefb;
+        }
+
+        td.phrase {
+            text-align: left;
+            font-style: italic;
+        }
+
+        .e {
+            background-color: #d0f0c0;
+            font-weight: bold;
+        }
+
+        .no-e {
+            background-color: #f8d7da;
+            font-weight: bold;
+        }
+
+        input {
+            width: 140px;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🇳🇱 Accord de l’adjectief avec ou sans -e</h1>
+
+    <div class="box">
+        <h2>📘 Rappel de la règle :</h2>
+        <ul>
+            <li>✅ On met -e dans presque tous les cas</li>
+            <li>❌ On ne met <strong>pas -e</strong> si le mot est :</li>
+            <ul>
+                <li>un <strong>het-woord</strong></li>
+                <li>au singulier</li>
+                <li>avec <strong>een</strong></li>
+            </ul>
+            <li>➡️ Si le nom est au <strong>pluriel</strong>, on met toujours -e ✅</li>
+        </ul>
+    </div>
+
+    <h2>📊 Tableau avec singulier et pluriel</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Phrase</th>
+                <th>Het-woord ?</th>
+                <th>Pluriel ?</th>
+                <th>“een” ?</th>
+                <th>Adjectif avec -e ?</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="phrase">Het mooie huis</td>
+                <td>✔️</td>
+                <td></td>
+                <td></td>
+                <td class="e">✅ Avec -e</td>
+            </tr>
+            <tr>
+                <td class="phrase">Een mooi huis</td>
+                <td>✔️</td>
+                <td></td>
+                <td>✔️</td>
+                <td class="no-e">❌ Sans -e</td>
+            </tr>
+            <tr>
+                <td class="phrase">De grote hond</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="e">✅ Avec -e</td>
+            </tr>
+            <tr>
+                <td class="phrase">De mooie huizen</td>
+                <td>✔️</td>
+                <td>✔️</td>
+                <td></td>
+                <td class="e">✅ Avec -e</td>
+            </tr>
+            <tr>
+                <td class="phrase">Mijn oude boeken</td>
+                <td>✔️</td>
+                <td>✔️</td>
+                <td></td>
+                <td class="e">✅ Avec -e</td>
+            </tr>
+            <tr>
+                <td class="phrase">Een grote bomen</td>
+                <td></td>
+                <td>✔️</td>
+                <td>✔️</td>
+                <td class="e">✅ Avec -e</td>
+            </tr>
+            <tr>
+                <td class="phrase">De man is groot</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="no-e">❌ Sans -e</td>
+            </tr>
+            <tr>
+                <td class="phrase">De kinderen zijn blij</td>
+                <td></td>
+                <td>✔️</td>
+                <td></td>
+                <td class="no-e">❌ Sans -e</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>🧪 Petit quiz</h2>
+    <p>Complète avec ou sans <code>-e</code> :</p>
+    <ul>
+        <li>Het ... boek (nieuw) → <input type="text" placeholder="Réponse ici"> </li>
+        <li>Een ... kind (klein) → <input type="text" placeholder="Réponse ici"> </li>
+        <li>De ... vrienden (leuk) → <input type="text" placeholder="Réponse ici"> </li>
+        <li>Mijn ... schoenen (duur) → <input type="text" placeholder="Réponse ici"> </li>
+        <li>De leraar is ... (streng) → <input type="text" placeholder="Réponse ici"> </li>
+    </ul>
+
+</body>
+
+</html>

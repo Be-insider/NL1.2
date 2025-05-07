@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Accord adjectief - version avec croix rouges</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f9ff;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2 {
+            color: #0d47a1;
+        }
+
+        .box {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #bbdefb;
+        }
+
+        .result {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .with-e {
+            background-color: #d0f0c0;
+            color: green;
+        }
+
+        .without-e {
+            background-color: #f8d7da;
+            color: red;
+        }
+
+        .check {
+            color: green;
+            font-weight: bold;
+        }
+
+        .cross {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🇳🇱 Accord de l’adjectief avec ou sans -e</h1>
+
+    <div class="box">
+        <h2>📘 Quand ne pas mettre -e ?</h2>
+        <p>❌ On ne met pas -e <strong>seulement si ces 3 conditions sont vraies en même temps</strong> :</p>
+        <ul>
+            <li>✔️ Le mot est un <strong>het-woord</strong></li>
+            <li>✔️ Il est au <strong>singulier</strong></li>
+            <li>✔️ Il y a <strong>“een”</strong> devant</li>
+        </ul>
+        <p>➡️ Si une ou plusieurs conditions sont ❌ fausses → <strong>on met -e</strong> ✅</p>
+    </div>
+
+    <h2>📊 Exemples avec coches (✔️) et croix (❌)</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Phrase</th>
+                <th>het-woord ?</th>
+                <th>Singulier ?</th>
+                <th>“een” ?</th>
+                <th>Ajoute -e ?</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><i>Een mooi huis</i></td>
+                <td class="check">✔️</td>
+                <td class="check">✔️</td>
+                <td class="check">✔️</td>
+                <td class="without-e">❌ Sans -e</td>
+            </tr>
+            <tr>
+                <td><i>Het mooie huis</i></td>
+                <td class="check">✔️</td>
+                <td class="check">✔️</td>
+                <td class="cross">❌</td>
+                <td class="with-e">✅ Avec -e</td>
+            </tr>
+            <tr>
+                <td><i>De grote hond</i></td>
+                <td class="cross">❌</td>
+                <td class="check">✔️</td>
+                <td class="check">✔️</td>
+                <td class="with-e">✅ Avec -e</td>
+            </tr>
+            <tr>
+                <td><i>De mooie huizen</i></td>
+                <td class="check">✔️</td>
+                <td class="cross">❌</td>
+                <td class="cross">❌</td>
+                <td class="with-e">✅ Avec -e</td>
+            </tr>
+            <tr>
+                <td><i>Mijn oude boeken</i></td>
+                <td class="check">✔️</td>
+                <td class="cross">❌</td>
+                <td class="cross">❌</td>
+                <td class="with-e">✅ Avec -e</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>🧪 Test interactif</h2>
+    <p>Coche les conditions pour ta phrase :</p>
+
+    <label><input type="checkbox" id="het"> Le mot est un het-woord</label><br>
+    <label><input type="checkbox" id="singulier"> Le mot est au singulier</label><br>
+    <label><input type="checkbox" id="een"> Il y a “een” devant</label><br><br>
+
+    <button onclick="verifier()">Vérifier</button>
+
+    <p id="resultat" class="result"></p>
+
+    <script>
+        function verifier() {
+            const het = document.getElementById("het").checked;
+            const singulier = document.getElementById("singulier").checked;
+            const een = document.getElementById("een").checked;
+
+            const resultat = document.getElementById("resultat");
+
+            if (het && singulier && een) {
+                resultat.textContent = "❌ On n'ajoute PAS -e";
+                resultat.className = "result without-e";
+            } else {
+                resultat.textContent = "✅ On ajoute -e";
+                resultat.className = "result with-e";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

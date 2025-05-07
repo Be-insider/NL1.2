@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Съгласуване на прилагателни в нидерландски</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f9ff;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2 {
+            color: #0d47a1;
+        }
+
+        .box {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #bbdefb;
+        }
+
+        td.example {
+            text-align: left;
+            font-style: italic;
+        }
+
+        .yes {
+            background-color: #d0f0c0;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🇳🇱 Нидерландска граматика: Съгласуване на прилагателни</h1>
+
+    <div class="box">
+        <h2>📘 1. Когато прилагателното стои пред съществителното (атрибутивна употреба)</h2>
+        <p>Когато прилагателното е <strong>точно пред съществителното</strong>, то обикновено получава окончание
+            <strong>-e</strong>.</p>
+
+        <p><strong>❗ Внимавай:</strong> има <strong>само ЕДНО изключение</strong>, когато не се добавя -e.</p>
+
+        <p><strong>❌ Не се добавя -e само ако СА ИЗПЪЛНЕНИ и трите условия:</strong></p>
+        <ul>
+            <li>думата е <strong>het-дума</strong></li>
+            <li>думата е в <strong>единствено число</strong></li>
+            <li>има <strong>неопределителен член “een”</strong></li>
+        </ul>
+
+        <p><strong>✅ Ако дори ЕДНО от тези условия не е изпълнено → добавяме -e!</strong></p>
+    </div>
+
+    <div class="box">
+        <h2>🧠 Таблица с логика:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>het-дума?</th>
+                    <th>единствено число?</th>
+                    <th>“een”?</th>
+                    <th>Добавяме -e?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>✅</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                    <td><strong>❌ НЕ</strong></td>
+                </tr>
+                <tr>
+                    <td>✅</td>
+                    <td>✅</td>
+                    <td>❌</td>
+                    <td><strong>✅ ДА</strong></td>
+                </tr>
+                <tr>
+                    <td>✅</td>
+                    <td>❌</td>
+                    <td>✅</td>
+                    <td><strong>✅ ДА</strong></td>
+                </tr>
+                <tr>
+                    <td>❌</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                    <td><strong>✅ ДА</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="box">
+        <h2>📘 2. Когато прилагателното стои след глагола (предикативна употреба)</h2>
+        <p>Когато прилагателното е <strong>след глагола</strong> (като <em>е, изглежда, остава</em>...), <strong>-e не
+                се добавя</strong>.</p>
+        <p><strong>Примери:</strong></p>
+        <ul>
+            <li><em>Het huis is mooi</em> → Къщата е красива.</li>
+            <li><em>De kinderen zijn blij</em> → Децата са щастливи.</li>
+        </ul>
+    </div>
+
+    <div class="box">
+        <h2>📘 3. ВИНАГИ добавяме -e когато:</h2>
+        <ul>
+            <li>✅ Има <strong>притежателно местоимение</strong> (mijn, jouw, zijn...)</li>
+            <li>✅ Има <strong>показателно местоимение</strong> (dit, dat...)</li>
+            <li>✅ Прилагателното се използва като <strong>съществително</strong> (напр. <em>de rijke</em> = богатият
+                човек)</li>
+            <li>✅ В <strong>множествено число</strong> → винаги се добавя -e</li>
+        </ul>
+    </div>
+
+    <h2>📊 Примери с подробни колони</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Изречение</th>
+                <th>Тип</th>
+                <th>het</th>
+                <th>de</th>
+                <th>единствено</th>
+                <th>een</th>
+                <th>-e?</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="example">Een mooi huis</td>
+                <td>Атрибутивно</td>
+                <td>✔️</td>
+                <td></td>
+                <td>✔️</td>
+                <td>✔️</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="example">Het mooie huis</td>
+                <td>Атрибутивно</td>
+                <td>✔️</td>
+                <td></td>
+                <td>✔️</td>
+                <td></td>
+                <td class="yes">✔️</td>
+            </tr>
+            <tr>
+                <td class="example">De grote hond</td>
+                <td>Атрибутивно</td>
+                <td></td>
+                <td>✔️</td>
+                <td>✔️</td>
+                <td>✔️</td>
+                <td class="yes">✔️</td>
+            </tr>
+            <tr>
+                <td class="example">Mijn oude schoenen</td>
+                <td>Атрибутивно (притежателно)</td>
+                <td></td>
+                <td>✔️</td>
+                <td></td>
+                <td></td>
+                <td class="yes">✔️</td>
+            </tr>
+            <tr>
+                <td class="example">De man is groot</td>
+                <td>Предикативно</td>
+                <td></td>
+                <td>✔️</td>
+                <td>✔️</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="example">De huizen zijn mooi</td>
+                <td>Предикативно (мн. число)</td>
+                <td>✔️</td>
+                <td>✔️</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="example">Hij trekt een dikke trui aan</td>
+                <td>Разделяем глагол</td>
+                <td></td>
+                <td>✔️</td>
+                <td>✔️</td>
+                <td>✔️</td>
+                <td class="yes">✔️</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>
