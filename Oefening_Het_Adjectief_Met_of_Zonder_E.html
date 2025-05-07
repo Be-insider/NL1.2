@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Accord de l’adjectif en néerlandais</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e6f7ff;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #005c99;
+    }
+    .exercice {
+      background: #fffbe6;
+      padding: 15px;
+      margin-top: 15px;
+      border-left: 5px solid #ffcc00;
+    }
+    input[type="text"] {
+      padding: 5px;
+      margin-right: 10px;
+    }
+    button {
+      padding: 6px 12px;
+      background-color: #007acc;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .feedback {
+      font-weight: bold;
+      margin-top: 5px;
+    }
+    .correct {
+      color: green;
+    }
+    .incorrect {
+      color: red;
+    }
+    select {
+      margin-bottom: 20px;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<h1 id="title">🇳🇱 Accord de l’adjectif en néerlandais 🇧🇪</h1>
+
+<label for="language-select">🌍 Choisir une langue / Select your language:</label>
+<select id="language-select" onchange="changeLanguage()">
+  <option value="fr">Français</option>
+  <option value="en">English</option>
+  <option value="tr">Türkçe</option>
+  <option value="bg">Български</option>
+  <option value="el">Ελληνικά</option>
+  <option value="nl">Nederlands</option>
+</select>
+
+<p id="instruction">Remplis les adjectifs au bon endroit, clique sur "Vérifier" et apprends en t’amusant 😄 !</p>
+
+<div id="exercise-container"></div>
+
+<script>
+  const translations = {
+    fr: {
+      title: "🇳🇱 Accord de l’adjectif en néerlandais 🇧🇪",
+      instruction: "Remplis les adjectifs au bon endroit, clique sur \"Vérifier\" et apprends en t’amusant 😄 !",
+      correct: "✅ Bravo ! C’est correct.",
+      incorrect: "❌ Oups ! Mauvaise réponse. La bonne réponse est : ",
+      placeholder: "Ta réponse ici",
+      check: "Vérifier",
+    },
+    en: {
+      title: "🇳🇱 Dutch Adjective Agreement 🇧🇪",
+      instruction: "Fill in the adjectives correctly, click 'Check' and have fun learning 😄!",
+      correct: "✅ Well done! That's correct.",
+      incorrect: "❌ Oops! The correct answer is: ",
+      placeholder: "Your answer here",
+      check: "Check",
+    },
+    tr: {
+      title: "🇳🇱 Fele Adlarıyla Sıfat Uyumları 🇧🇪",
+      instruction: "Doğru sıfatı gir, 'Kontrol et' tıkla ve eğlenerek öğren 😄!",
+      correct: "✅ Harika! Doğru cevap.",
+      incorrect: "❌ Yanlış cevap. Doğru cevap: ",
+      placeholder: "Cevabın buraya",
+      check: "Kontrol et",
+    },
+    bg: {
+      title: "🇳🇱 Съгласуване на прилагателното 🇧🇪",
+      instruction: "Попълни правилно прилагателните и натисни „Провери“ 😄!",
+      correct: "✅ Браво! Вярно е.",
+      incorrect: "❌ Грешен отговор. Правилният е: ",
+      placeholder: "Твоят отговор",
+      check: "Провери",
+    },
+    el: {
+      title: "🇳🇱 Συμφωνία επιθέτου στα ολλανδικά 🇧🇪",
+      instruction: "Συμπλήρωσε σωστά τα επίθετα και πάτα 'Έλεγχος' 😄!",
+      correct: "✅ Μπράβο! Σωστό.",
+      incorrect: "❌ Λάθος. Η σωστή απάντηση είναι: ",
+      placeholder: "Η απάντησή σου",
+      check: "Έλεγχος",
+    },
+    nl: {
+      title: "🇳🇱 Bijvoeglijk naamwoord en zelfstandig naamwoord 🇧🇪",
+      instruction: "Vul het juiste bijvoeglijk naamwoord in en klik op 'Controleer' 😄!",
+      correct: "✅ Goed gedaan! Dat is juist.",
+      incorrect: "❌ Fout. Het juiste antwoord is: ",
+      placeholder: "Jouw antwoord",
+      check: "Controleer",
+    }
+  };
+
+  const exercises = [
+    { id: 1, sentence: "Ik heb een (groot) hond.", answer: "grote" },
+    { id: 2, sentence: "We wonen in een (mooi) huis.", answer: "mooi" },
+    { id: 3, sentence: "Het (oud) boek ligt op tafel.", answer: "oude" },
+    { id: 4, sentence: "Een (lekker) ijsje is altijd fijn!", answer: "lekker" },
+    { id: 5, sentence: "Ik zie een (nieuw) meisje.", answer: "nieuw" },
+    { id: 6, sentence: "Hij draagt een (donker) jas.", answer: "donkere" },
+    { id: 7, sentence: "Ze koopt een (duur) auto.", answer: "dure" },
+    { id: 8, sentence: "Het is een (zacht) bed.", answer: "zacht" },
+    { id: 9, sentence: "Ik zoek een (lang) film.", answer: "lange" },
+    { id: 10, sentence: "Een (klein) kind speelt buiten.", answer: "klein" },
+    { id: 11, sentence: "We hebben een (rood) fiets.", answer: "rode" },
+    { id: 12, sentence: "Hij leest een (interessant) boek.", answer: "interessant" },
+    { id: 13, sentence: "Het (nieuw) huis is prachtig.", answer: "nieuwe" },
+    { id: 14, sentence: "Ze draagt een (wit) jurk.", answer: "witte" },
+    { id: 15, sentence: "Ik koop een (vers) brood.", answer: "vers" },
+    { id: 16, sentence: "Een (zwaar) tas ligt op de grond.", answer: "zware" },
+    { id: 17, sentence: "We eten een (gezond) maaltijd.", answer: "gezonde" },
+    { id: 18, sentence: "Het (duur) horloge is kapot.", answer: "dure" },
+    { id: 19, sentence: "Een (oud) man zit op de bank.", answer: "oude" },
+    { id: 20, sentence: "Hij zoekt een (snel) auto.", answer: "snelle" }
+  ];
+
+  function loadExercises(lang) {
+    const container = document.getElementById("exercise-container");
+    container.innerHTML = "";
+    exercises.forEach(ex => {
+      const div = document.createElement("div");
+      div.className = "exercice";
+      div.innerHTML = `
+        <p><strong>${ex.id}. ${ex.sentence}</strong></p>
+        <input type="text" id="ex${ex.id}" placeholder="${translations[lang].placeholder}">
+        <button onclick="checkAnswer('ex${ex.id}', '${ex.answer}')">${translations[lang].check}</button>
+        <div id="feedback${ex.id}" class="feedback"></div>
+      `;
+      container.appendChild(div);
+    });
+  }
+
+  function changeLanguage() {
+    const lang = document.getElementById("language-select").value;
+    document.getElementById("title").innerText = translations[lang].title;
+    document.getElementById("instruction").innerText = translations[lang].instruction;
+    loadExercises(lang);
+  }
+
+  function checkAnswer(inputId, correctAnswer) {
+    const lang = document.getElementById("language-select").value;
+    const userAnswer = document.getElementById(inputId).value.trim().toLowerCase();
+    const feedback = document.getElementById('feedback' + inputId.replace('ex', ''));
+    if (userAnswer === correctAnswer) {
+      feedback.textContent = translations[lang].correct;
+      feedback.className = "feedback correct";
+    } else {
+      feedback.textContent = translations[lang].incorrect + correctAnswer;
+      feedback.className = "feedback incorrect";
+    }
+  }
+
+  // Initialisation
+  window.onload = () => {
+    changeLanguage();
+  };
+</script>
+
+</body>
+</html>
