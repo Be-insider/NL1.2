@@ -1,0 +1,80 @@
+git remote remove origin
+
+git remote add origin https://github.com/Be-insider/NL1.2.git
+
+git push -u origin main
+
+
+🛠️ Étape 1 : Supprimer le mauvais remote
+Dans ton terminal VS Code, tape :
+
+bash
+Copier
+Modifier
+git remote remove origin
+🧭 Étape 2 : Ajouter le bon lien vers le dépôt (pas vers le fichier)
+Tu dois copier l’URL du dépôt, pas celle du fichier. Par exemple :
+
+bash
+Copier
+Modifier
+git remote add origin https://github.com/Be-insider/NL1.2.git
+(Ne surtout pas inclure /blob/main/... → c’est une URL vers un fichier, pas vers le dépôt Git.)
+
+✅ Étape 3 : Pousser ton code vers GitHub
+bash
+Copier
+Modifier
+git push -u origin main
+GitHub te connectera automatiquement si tu as bien configuré Git Credential Manager.
+
+
+
+
+
+
+Parfait, tu fais tout très bien et ce message est très courant, surtout quand :
+
+Tu as créé le dépôt sur GitHub, et
+
+Tu n’as pas cloné ce dépôt au départ, mais tu l’as lié ensuite depuis un projet local
+
+❗ Erreur :
+bash
+Copier
+Modifier
+Updates were rejected because the remote contains work that you do not have locally.
+💬 Traduction :
+Le dépôt GitHub a déjà un ou plusieurs fichiers (par exemple un README.md ou .gitignore)
+Et Git refuse d’écraser ces fichiers à distance car tu ne les as pas localement.
+
+✅ Solution : faire un git pull avec fusion, puis push
+Tape simplement :
+
+bash
+Copier
+Modifier
+git pull origin main --allow-unrelated-histories
+🔁 Cela va :
+
+Télécharger le contenu déjà présent sur GitHub
+
+Fusionner avec tes fichiers locaux
+
+Te demander de valider un message de merge (VS Code ouvrira une fenêtre) : enregistre et ferme simplement
+
+Ensuite, tu refais ton push :
+
+bash
+Copier
+Modifier
+git push -u origin main
+🧠 Pourquoi --allow-unrelated-histories ?
+Parce que tu as deux histoires Git différentes :
+
+Une locale (ton fichier HTML)
+
+Une distante (le README.md ou autre ajouté par GitHub)
+
+Git veut une autorisation explicite pour les fusionner ✅
+
